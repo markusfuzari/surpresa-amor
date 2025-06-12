@@ -27,6 +27,7 @@
     justify-content: flex-start;
     min-height: 400px;
     position: relative;
+	padding:10px;
   }
 
   .slide.active {
@@ -134,8 +135,21 @@
 
 <div class="carousel" role="region" aria-label="Carrossel de mensagens românticas">
 
+	<div class="slide active" role="group" aria-roledescription="slide" aria-label="Slide Abertura">
+	  <img src="imagens/slide_abertura.jpg" alt="Nosso amor" class="h-96 md:h-[500px] w-11/12 max-w-4xl mx-auto bg-cover bg-center rounded-lg shadow-lg"  />
+	  <div class="inset-0 flex flex-col items-center justify-center text-white text-center p-6 
+				  bg-black bg-opacity-40 rounded-lg max-w-4xl mx-auto top-20 left-1/2 transform -translate-x-1/2 md:top-32">
+		<h2 class="font-playfair text-4xl md:text-6xl font-bold mb-4 text-pink-400">Nariane & Markus</h2>
+		<p class="text-lg md:text-2xl max-w-xl">
+		  É com muito amor que iniciamos essa linda jornada juntos,  
+		  celebrando também a vida da nossa filha querida, <strong>Maria Eduarda</strong>.  
+		  Que essa mensagem seja o início de momentos inesquecíveis para nossa família.
+		</p>
+	  </div>
+	</div>
+
   <!-- Slide 1 -->
-  <div class="slide active" role="group" aria-roledescription="slide" aria-label="Slide 1 de 15">
+  <div class="slide" role="group" aria-roledescription="slide" aria-label="Slide 1 de 15">
     <img src="imagens/slide1.jpg" alt="Nosso início" />
     <div class="slide-text">Nosso amor é infinito, eterno e verdadeiro.</div>
   </div>
@@ -236,6 +250,15 @@
       <img src="imagens/slide12.jpg" alt="Nosso refúgio" role="listitem" />
       <img src="imagens/slide13.jpg" alt="Doce cumplicidade" role="listitem" />
       <img src="imagens/slide14.jpg" alt="Amor infinito" role="listitem" />
+    </div>
+	<div class="absolute inset-0 flex flex-col items-center justify-center text-white text-center p-6
+                bg-black bg-opacity-50 rounded-lg max-w-5xl mx-auto top-12 left-1/2 transform -translate-x-1/2">
+      <h2 class="font-playfair text-4xl md:text-6xl font-bold mb-4 text-pink-300">Nosso Mosaico de Momentos</h2>
+      <p class="text-lg md:text-2xl max-w-3xl mx-auto italic">
+        Cada imagem é uma lembrança viva do amor que construímos juntos —  
+        um reflexo da nossa jornada, da nossa filha, e do sonho que compartilhamos.  
+        Que esse mosaico seja a prova eterna do nosso carinho, da nossa força e da nossa felicidade.
+      </p>
     </div>
   </div>
 
