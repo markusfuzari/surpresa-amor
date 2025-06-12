@@ -1,95 +1,176 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Markus & Nariane - Amor Eterno</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body, html {
-      margin: 0; padding: 0;
-      overflow: hidden;
-      font-family: 'Playfair Display', serif;
-      background-color: #000;
-      height: 100vh;
-      width: 100vw;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Markus & Nariane - Amor Eterno</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 
+  body, html {
+    margin: 0; padding: 0;
+    overflow: hidden;
+    font-family: 'Playfair Display', serif;
+    background-color: #1a0a0a;
+    height: 100vh;
+    width: 100vw;
+    color: #fff;
+  }
+
+  #slideshow {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+  }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    padding: 2rem;
+    box-sizing: border-box;
+    color: #fff;
+    text-shadow:
+      1px 1px 3px rgba(0,0,0,0.7),
+      0 0 12px rgba(255, 182, 193, 0.6);
+    border-radius: 20px;
+    user-select: none;
+  }
+  .slide.active {
+    opacity: 1;
+    z-index: 10;
+  }
+
+  /* Imagem em quadrado responsivo */
+  .image-box {
+    flex-shrink: 0;
+    width: 70vh;
+    height: 70vh;
+    border-radius: 20px;
+    box-shadow:
+      0 8px 30px rgba(255, 105, 180, 0.8),
+      inset 0 0 30px rgba(255, 182, 193, 0.6);
+    overflow: hidden;
+    background: black;
+    border: 4px solid rgba(255, 105, 180, 0.7);
+  }
+  .image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    filter: drop-shadow(0 0 5px rgba(255, 105, 180, 0.8));
+  }
+
+  /* Texto */
+  .text-content {
+    max-width: 40%;
+    font-weight: 300;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    background: rgba(0,0,0,0.35);
+    padding: 1.5rem 2rem;
+    border-radius: 20px;
+    box-shadow:
+      0 0 20px rgba(255, 105, 180, 0.5);
+    backdrop-filter: blur(6px);
+  }
+  .text-content h1, .text-content h2 {
+    font-weight: 700;
+    font-size: 2.8rem;
+    margin-bottom: 0.6rem;
+    font-family: 'Playfair Display', serif;
+    text-shadow: 0 0 15px #ff6fa3, 0 0 20px #ff4576;
+  }
+  .text-content p {
+    margin-top: 1rem;
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: #ffe1e7;
+    text-shadow: 0 0 5px #ff85a2;
+  }
+
+  /* Responsivo para telas pequenas */
+  @media (max-width: 767px) {
     .slide {
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      transition: opacity 1.2s ease-in-out;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-      gap: 3rem;
-      color: white;
-      text-shadow: 0 0 8px rgba(0,0,0,0.8);
-      overflow: hidden;
+      flex-direction: column !important;
+      justify-content: flex-start !important;
+      padding-top: 2rem;
+      gap: 1.5rem;
     }
-    .slide.active {
-      opacity: 1;
-      z-index: 10;
-    }
-
-    /* Imagem em quadrado responsivo */
     .image-box {
-      flex-shrink: 0;
-      width: 70vh;
-      height: 70vh;
-      border-radius: 1rem;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.7);
-      overflow: hidden;
-      background: black;
+      width: 90vw;
+      height: 90vw;
+      border-width: 3px;
     }
-    .image-box img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-    }
-
-    /* Texto */
     .text-content {
-      max-width: 40%;
-      font-weight: 300;
-      font-size: 1.2rem;
-      line-height: 1.4;
+      max-width: 90vw;
+      font-size: 1.1rem;
+      text-align: center;
+      padding: 1rem 1.5rem;
+      box-shadow:
+        0 0 15px rgba(255, 105, 180, 0.7);
     }
     .text-content h1, .text-content h2 {
-      font-weight: 700;
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
     }
     .text-content p {
-      margin-top: 0.7rem;
+      font-size: 1.1rem;
     }
+  }
 
-    /* Responsivo para telas pequenas */
-    @media (max-width: 767px) {
-      .slide {
-        flex-direction: column;
-        justify-content: flex-start;
-        padding-top: 2rem;
-        gap: 1.5rem;
-      }
-      .image-box {
-        width: 90vw;
-        height: 90vw;
-      }
-      .text-content {
-        max-width: 90vw;
-        font-size: 1rem;
-        text-align: center;
-      }
-      .text-content h1, .text-content h2 {
-        font-size: 1.8rem;
-      }
-    }
-  </style>
+  /* Backgrounds para cada slide, tons românticos e suaves */
+  .slide:nth-child(1) {
+    background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+  }
+  .slide:nth-child(2) {
+    background: linear-gradient(135deg, #2193b0, #6dd5ed);
+  }
+  .slide:nth-child(3) {
+    background: linear-gradient(135deg, #cc2b5e, #753a88);
+  }
+  .slide:nth-child(4) {
+    background: linear-gradient(135deg, #ee9ca7, #ffdde1);
+  }
+  .slide:nth-child(5) {
+    background: linear-gradient(135deg, #42275a, #734b6d);
+  }
+  .slide:nth-child(6) {
+    background: linear-gradient(135deg, #de6161, #2657eb);
+  }
+  .slide:nth-child(7) {
+    background: linear-gradient(135deg, #eacda3, #d6ae7b);
+  }
+  .slide:nth-child(8) {
+    background: linear-gradient(135deg, #dd5e89, #f7bb97);
+  }
+  .slide:nth-child(9) {
+    background: linear-gradient(135deg, #a8c0ff, #3f2b96);
+  }
+  .slide:nth-child(10) {
+    background: linear-gradient(135deg, #f7971e, #ffd200);
+  }
+  .slide:nth-child(11) {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+  }
+  .slide:nth-child(12) {
+    background: linear-gradient(135deg, #f953c6, #b91d73);
+  }
+  .slide:nth-child(13) {
+    background: linear-gradient(135deg, #ee9ca7, #ffdde1);
+  }
+  .slide:nth-child(14) {
+    background: linear-gradient(135deg, #ff6a00, #ee0979);
+  }
+
+</style>
 </head>
 <body>
 
@@ -178,7 +259,7 @@
       </div>
       <div class="text-content">
         <h2>Nossa família</h2>
-        <p>O maior presente que Deus nos deu para cuidar com amor.</p>
+        <p>É o lar que criamos com carinho e dedicação.</p>
       </div>
     </div>
 
@@ -188,8 +269,8 @@
         <img src="imagens/slide9.jpg" alt="Amor 9" />
       </div>
       <div class="text-content">
-        <h2>Compartilhar amor</h2>
-        <p>A magia de cada momento juntos nos fortalece.</p>
+        <h2>Promessas de amor</h2>
+        <p>Que fazemos para o presente e para o futuro.</p>
       </div>
     </div>
 
@@ -199,8 +280,8 @@
         <img src="imagens/slide10.jpg" alt="Amor 10" />
       </div>
       <div class="text-content">
-        <h2>Um amor para sempre</h2>
-        <p>Que continue a crescer e iluminar nossos caminhos.</p>
+        <h2>Juntos somos mais fortes</h2>
+        <p>Nos apoiando e inspirando sempre.</p>
       </div>
     </div>
 
@@ -210,8 +291,8 @@
         <img src="imagens/slide11.jpg" alt="Amor 11" />
       </div>
       <div class="text-content">
-        <h2>Nosso lar</h2>
-        <p>Repleto de amor, risos e sonhos realizados.</p>
+        <h2>Nosso amor é eterno</h2>
+        <p>Como as estrelas que iluminam o céu da nossa vida.</p>
       </div>
     </div>
 
@@ -221,8 +302,8 @@
         <img src="imagens/slide12.jpg" alt="Amor 12" />
       </div>
       <div class="text-content">
-        <h2>Parceiros de vida</h2>
-        <p>Juntos em cada passo, fortalecendo nosso vínculo.</p>
+        <h2>Carinho e paixão</h2>
+        <p>Que se renovam a cada olhar e toque.</p>
       </div>
     </div>
 
@@ -232,8 +313,8 @@
         <img src="imagens/slide13.jpg" alt="Amor 13" />
       </div>
       <div class="text-content">
-        <h2>Carinho eterno</h2>
-        <p>Que nunca se apaga, mesmo nos dias difíceis.</p>
+        <h2>Obrigado por estar comigo</h2>
+        <p>Minha vida é mais linda desde que você chegou.</p>
       </div>
     </div>
 
@@ -243,36 +324,30 @@
         <img src="imagens/slide14.jpg" alt="Amor 14" />
       </div>
       <div class="text-content">
-        <h1>Feliz Dia dos Namorados!</h1>
-        <p>Que nossa história seja sempre escrita com amor, parceria e bênçãos divinas. Amo você, hoje e para sempre. ❤️</p>
+        <h1>Markus & Nariane</h1>
+        <p>Amor que cresce e floresce a cada dia, para sempre.</p>
       </div>
     </div>
-
   </div>
 
-  <script>
-    const slides = document.querySelectorAll(".slide");
-    let currentSlide = 0;
-    const slideCount = slides.length;
+<script>
+  const slides = document.querySelectorAll('.slide');
+  let current = 0;
 
-    // Tempo de leitura para cada slide em milissegundos (exemplo: 10s)
-    const slideDurations = [
-      10000, 10000, 9000, 9000,
-      10000, 9000, 9000, 10000,
-      9000, 10000, 9000, 9000,
-      9000, 12000
-    ];
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+    });
+  }
 
-    function showNextSlide() {
-      slides[currentSlide].classList.remove("active");
-      currentSlide = (currentSlide + 1) % slideCount;
-      slides[currentSlide].classList.add("active");
+  setInterval(() => {
+    current = (current + 1) % slides.length;
+    showSlide(current);
+  }, 6000);
 
-      setTimeout(showNextSlide, slideDurations[currentSlide]);
-    }
+  // Inicializa
+  showSlide(current);
+</script>
 
-    // Start slideshow with first delay
-    setTimeout(showNextSlide, slideDurations[0]);
-  </script>
 </body>
 </html>
