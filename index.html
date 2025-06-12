@@ -1,78 +1,48 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Nossa História de Amor</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet" />
     <style>
-        /* Estilos para fontes personalizadas */
         body {
             font-family: 'Poppins', sans-serif;
-            overflow: hidden; /* Evita barras de rolagem */
+            overflow: hidden;
         }
-
         .font-playfair {
             font-family: 'Playfair Display', serif;
         }
-
-        /* Cada slide ocupa a tela inteira */
         .slide {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             opacity: 0;
             transition: opacity 1.5s ease-in-out;
             z-index: 1;
         }
-
-        /* O slide ativo é visível */
         .slide.active {
             opacity: 1;
             z-index: 2;
         }
-        
-        /* Animação de fundo (Efeito Ken Burns) */
         .ken-burns {
             animation: kenburns 20s ease-out infinite;
         }
-
         @keyframes kenburns {
-            0% {
-                transform: scale(1) translate(0, 0);
-            }
-            50% {
-                transform: scale(1.1) translate(-2%, 2%);
-            }
-            100% {
-                transform: scale(1) translate(0, 0);
-            }
+            0% { transform: scale(1) translate(0, 0); }
+            50% { transform: scale(1.1) translate(-2%, 2%); }
+            100% { transform: scale(1) translate(0, 0); }
         }
-        
-        /* Animações para o texto */
-        .text-fade-in {
-            animation: fadeIn 3s ease-in forwards;
-        }
-        
-        .text-fade-in-delay-1 {
-            animation: fadeIn 3s 1s ease-in forwards;
-        }
-        
-        .text-fade-in-delay-2 {
-            animation: fadeIn 3s 2s ease-in forwards;
-        }
-
+        .text-fade-in { animation: fadeIn 3s ease-in forwards; }
+        .text-fade-in-delay-1 { animation: fadeIn 3s 1s ease-in forwards; }
+        .text-fade-in-delay-2 { animation: fadeIn 3s 2s ease-in forwards; }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        
-        /* Overlay escuro para melhorar a legibilidade do texto */
         .overlay {
             background-color: rgba(0, 0, 0, 0.4);
         }
@@ -80,140 +50,108 @@
 </head>
 <body class="bg-black">
 
-    <div id="slideshow-container">
-        <!-- Slide 1: Abertura Impactante -->
-        <div class="slide active">
-            <div class="h-full w-full bg-cover bg-center ken-burns" style="background-image: url('https://images.unsplash.com/photo-1532703108233-63d1ceb58592?q=80&w=2070&auto=format&fit=crop');"></div>
-            <div class="absolute inset-0 flex flex-col items-center justify-center text-white text-center p-4 overlay">
-                <h1 class="font-playfair text-5xl md:text-8xl font-bold opacity-0 text-fade-in">Markus & Nariane</h1>
-                <p class="text-xl md:text-3xl mt-4 opacity-0 text-fade-in-delay-1">E a nossa estrela, Maria Eduarda</p>
-                <p class="text-lg md:text-xl mt-8 opacity-0 text-fade-in-delay-2">Uma história de amor que floresce a cada dia.</p>
-            </div>
-        </div>
-
-        <!-- Slide 2 -->
-        <div class="slide">
-            <div class="h-full w-full bg-cover bg-center ken-burns" style="background-image: url('https://content.gemini.google.com/v1/files/uploaded:Apresentacao_Romantica_12_06.pptx?timestamp=1718164344589&allow-serving-from-cache=true');"></div>
-            <div class="absolute inset-0 flex items-center justify-center overlay">
-                <p class="text-white text-2xl md:text-4xl font-light text-center p-8 text-fade-in">O início de tudo: 12.06.2016 <br> Onde cada olhar prometia o futuro.</p>
-            </div>
-        </div>
-        
-        <!-- Slide 3 -->
-        <div class="slide">
-             <div class="h-full w-full bg-cover bg-center ken-burns" style="background-image: url('https://content.gemini.google.com/v1/files/uploaded:Apresentacao_Romantica_12_06.pptx?timestamp=1718164344589&allow-serving-from-cache=true&slide-index=4');"></div>
-            <div class="absolute bottom-0 left-0 p-8 overlay w-full">
-                <p class="text-white text-xl md:text-3xl font-light text-fade-in">"Você é a resposta de todas as minhas orações."</p>
-            </div>
-        </div>
-
-        <!-- Slide 4 -->
-        <div class="slide">
-            <div class="h-full w-full bg-cover bg-center ken-burns" style="background-image: url('https://content.gemini.google.com/v1/files/uploaded:Apresentacao_Romantica_12_06.pptx?timestamp=1718164344589&allow-serving-from-cache=true&slide-index=5');"></div>
-            <div class="absolute top-0 right-0 p-8 overlay w-full text-right">
-                <p class="text-white text-xl md:text-3xl font-light text-fade-in">Juntos, em cada fase, em cada sorriso.</p>
-            </div>
-        </div>
-        
-        <!-- Slide 5 -->
-        <div class="slide">
-            <div class="h-full w-full bg-cover bg-center ken-burns" style="background-image: url('https://content.gemini.google.com/v1/files/uploaded:Apresentacao_Romantica_12_06.pptx?timestamp=1718164344589&allow-serving-from-cache=true&slide-index=6');"></div>
-            <div class="absolute inset-0 flex items-center justify-center overlay">
-                 <p class="text-white text-2xl md:text-4xl font-light text-center p-8 text-fade-in">E o nosso amor se multiplicou...</p>
-            </div>
-        </div>
-
-        <!-- Slide 6 -->
-        <div class="slide">
-            <div class="h-full w-full bg-cover bg-center ken-burns" style="background-image: url('https://content.gemini.google.com/v1/files/uploaded:Apresentacao_Romantica_12_06.pptx?timestamp=1718164344589&allow-serving-from-cache=true&slide-index=7');"></div>
-            <div class="absolute bottom-0 p-8 w-full text-center overlay">
-                <p class="text-white text-xl md:text-3xl font-light text-fade-in">Construindo memórias, celebrando a vida.</p>
-            </div>
-        </div>
-
-        <!-- Slide 7 -->
-        <div class="slide">
-            <div class="h-full w-full bg-cover bg-center ken-burns" style="background-image: url('https://content.gemini.google.com/v1/files/uploaded:Apresentacao_Romantica_12_06.pptx?timestamp=1718164344589&allow-serving-from-cache=true&slide-index=8');"></div>
-            <div class="absolute inset-0 flex items-center justify-center overlay">
-                <p class="text-white text-2xl md:text-4xl font-light text-center p-8 text-fade-in">Momentos simples, felicidade imensa.</p>
-            </div>
-        </div>
-        
-        <!-- Slide 8 -->
-        <div class="slide">
-            <div class="h-full w-full bg-cover bg-center ken-burns" style="background-image: url('https://content.gemini.google.com/v1/files/uploaded:Apresentacao_Romantica_12_06.pptx?timestamp=1718164344589&allow-serving-from-cache=true&slide-index=9');"></div>
-            <div class="absolute inset-0 flex items-center justify-center overlay">
-                 <p class="text-white text-2xl md:text-4xl font-light text-center p-8 text-fade-in">Nossa família: o maior presente de Deus.</p>
-            </div>
-        </div>
-        
-        <!-- Slide 9 -->
-         <div class="slide">
-            <div class="h-full w-full bg-cover bg-center ken-burns" style="background-image: url('https://content.gemini.google.com/v1/files/uploaded:Apresentacao_Romantica_12_06.pptx?timestamp=1718164344589&allow-serving-from-cache=true&slide-index=10');"></div>
-            <div class="absolute bottom-0 right-0 p-8 text-right overlay w-full">
-                <p class="text-white text-xl md:text-3xl font-light text-fade-in">A magia de cada momento compartilhado.</p>
-            </div>
-        </div>
-        
-        <!-- Slide 10: Encerramento -->
-        <div class="slide">
-             <div class="h-full w-full bg-cover bg-center ken-burns" style="background-image: url('https://images.unsplash.com/photo-1542282417-a69c25239b5b?q=80&w=1974&auto=format&fit=crop');"></div>
-            <div class="absolute inset-0 flex flex-col items-center justify-center text-white text-center p-4 overlay">
-                <h2 class="font-playfair text-4xl md:text-6xl font-bold opacity-0 text-fade-in">Feliz Dia dos Namorados!</h2>
-                <p class="text-xl md:text-2xl mt-4 opacity-0 text-fade-in-delay-1">Que a nossa história continue sendo escrita com amor, parceria e as bênçãos de Deus.</p>
-                <p class="text-lg md:text-xl mt-6 opacity-0 text-fade-in-delay-2">Amo você, hoje e sempre. ❤️</p>
-            </div>
+<div id="slideshow-container">
+    <div class="slide active">
+        <div class="h-full w-full bg-cover bg-center ken-burns" style="background-image: url('20241116_111251.jpg');"></div>
+        <div class="absolute inset-0 flex flex-col items-center justify-center text-white text-center p-4 overlay">
+            <h1 class="font-playfair text-5xl md:text-8xl font-bold opacity-0 text-fade-in">Markus & Nariane</h1>
+            <p class="text-xl md:text-3xl mt-4 opacity-0 text-fade-in-delay-1">E a nossa estrela, Maria Eduarda</p>
+            <p class="text-lg md:text-xl mt-8 opacity-0 text-fade-in-delay-2">Uma história de amor que floresce a cada dia.</p>
         </div>
     </div>
 
-    <script>
-        // Lógica do slideshow
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        const slideCount = slides.length;
+    <div class="slide">
+        <div class="h-full w-full bg-cover bg-center ken-burns" style="background-image: url('20241127_235145.jpg');"></div>
+        <div class="absolute inset-0 flex items-center justify-center overlay">
+            <p class="text-white text-2xl md:text-4xl font-light text-center p-8 text-fade-in">O início de tudo: 12.06.2016 <br> Onde cada olhar prometia o futuro.</p>
+        </div>
+    </div>
 
-        // Função para remover as classes de animação de texto de um slide
-        function resetTextAnimations(slide) {
-            const animatedTexts = slide.querySelectorAll('[class*="text-fade-in"]');
-            animatedTexts.forEach(text => {
-                // Truque para reiniciar a animação CSS
-                text.style.animation = 'none';
-                text.offsetHeight; // Força reflow
-                text.style.animation = '';
-            });
-        }
+    <div class="slide">
+        <div class="h-full w-full bg-cover bg-center ken-burns" style="background-image: url('20241215_101557.jpg');"></div>
+        <div class="absolute bottom-0 left-0 p-8 overlay w-full">
+            <p class="text-white text-xl md:text-3xl font-light text-fade-in">"Você é a resposta de todas as minhas orações."</p>
+        </div>
+    </div>
 
-        function showSlide(index) {
-            // Esconde o slide atual
-            slides[currentSlide].classList.remove('active');
-            
-            // Reseta animações do slide que vai sair
-            resetTextAnimations(slides[currentSlide]);
+    <div class="slide">
+        <div class="h-full w-full bg-cover bg-center ken-burns" style="background-image: url('20241219_211139.jpg');"></div>
+        <div class="absolute top-0 right-0 p-8 overlay w-full text-right">
+            <p class="text-white text-xl md:text-3xl font-light text-fade-in">Juntos, em cada fase, em cada sorriso.</p>
+        </div>
+    </div>
 
-            // Atualiza o índice do slide
-            currentSlide = (index + slideCount) % slideCount;
+    <div class="slide">
+        <div class="h-full w-full bg-cover bg-center ken-burns" style="background-image: url('20250308_094211.jpg');"></div>
+        <div class="absolute inset-0 flex items-center justify-center overlay">
+            <p class="text-white text-2xl md:text-4xl font-light text-center p-8 text-fade-in">E o nosso amor se multiplicou...</p>
+        </div>
+    </div>
 
-            // Mostra o novo slide
-            const newSlide = slides[currentSlide];
-            newSlide.classList.add('active');
-            
-            // Ativa as animações de texto para o novo slide
-            const animatedTexts = newSlide.querySelectorAll('[class*="text-fade-in"]');
-            animatedTexts.forEach(text => {
-                // Garante que a opacidade inicial seja 0 para a animação funcionar sempre
-                 text.style.opacity = '0';
-            });
-        }
-        
-        // Inicia o slideshow
-        showSlide(currentSlide);
+    <div class="slide">
+        <div class="h-full w-full bg-cover bg-center ken-burns" style="background-image: url('20250329_122043.jpg');"></div>
+        <div class="absolute bottom-0 p-8 w-full text-center overlay">
+            <p class="text-white text-xl md:text-3xl font-light text-fade-in">Construindo memórias, celebrando a vida.</p>
+        </div>
+    </div>
 
-        // Muda de slide a cada 8 segundos
-        setInterval(() => {
-            showSlide(currentSlide + 1);
-        }, 8000); // 8 segundos por slide
+    <div class="slide">
+        <div class="h-full w-full bg-cover bg-center ken-burns" style="background-image: url('20250409_203202.jpg');"></div>
+        <div class="absolute inset-0 flex items-center justify-center overlay">
+            <p class="text-white text-2xl md:text-4xl font-light text-center p-8 text-fade-in">Momentos simples, felicidade imensa.</p>
+        </div>
+    </div>
 
-    </script>
+    <div class="slide">
+        <div class="h-full w-full bg-cover bg-center ken-burns" style="background-image: url('20250504_192113.jpg');"></div>
+        <div class="absolute inset-0 flex items-center justify-center overlay">
+            <p class="text-white text-2xl md:text-4xl font-light text-center p-8 text-fade-in">Nossa família: o maior presente de Deus.</p>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="h-full w-full bg-cover bg-center ken-burns" style="background-image: url('20250511_045742.jpg');"></div>
+        <div class="absolute bottom-0 right-0 p-8 text-right overlay w-full">
+            <p class="text-white text-xl md:text-3xl font-light text-fade-in">A magia de cada momento compartilhado.</p>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="h-full w-full bg-cover bg-center ken-burns" style="background-image: url('20250531_135002.jpg');"></div>
+        <div class="absolute inset-0 flex flex-col items-center justify-center text-white text-center p-4 overlay">
+            <h2 class="font-playfair text-4xl md:text-6xl font-bold opacity-0 text-fade-in">Feliz Dia dos Namorados!</h2>
+            <p class="text-xl md:text-2xl mt-4 opacity-0 text-fade-in-delay-1">Que a nossa história continue sendo escrita com amor, parceria e as bênçãos de Deus.</p>
+            <p class="text-lg md:text-xl mt-6 opacity-0 text-fade-in-delay-2">Amo você, hoje e sempre. ❤️</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCount = slides.length;
+
+    function resetTextAnimations(slide) {
+        const animatedTexts = slide.querySelectorAll('[class*="text-fade-in"]');
+        animatedTexts.forEach(text => {
+            text.style.animation = 'none';
+            text.offsetHeight; // trigger reflow
+            text.style.animation = '';
+        });
+    }
+
+    function showSlide(index) {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = index;
+        slides[currentSlide].classList.add('active');
+        resetTextAnimations(slides[currentSlide]);
+    }
+
+    setInterval(() => {
+        let nextSlide = (currentSlide + 1) % slideCount;
+        showSlide(nextSlide);
+    }, 8000);
+</script>
 
 </body>
 </html>
