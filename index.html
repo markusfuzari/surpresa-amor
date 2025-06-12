@@ -2,8 +2,8 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Markus & Nariane</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Markus & Nariane - Amor Eterno</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body, html {
@@ -11,217 +11,240 @@
       overflow: hidden;
       font-family: 'Playfair Display', serif;
       background-color: #000;
+      height: 100vh;
+      width: 100vw;
     }
+
     .slide {
       position: absolute;
       inset: 0;
       opacity: 0;
-      transition: opacity 1s ease-in-out;
+      transition: opacity 1.2s ease-in-out;
       display: flex;
-      width: 100%;
-      height: 100%;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      gap: 3rem;
+      color: white;
+      text-shadow: 0 0 8px rgba(0,0,0,0.8);
+      overflow: hidden;
     }
     .slide.active {
       opacity: 1;
       z-index: 10;
     }
+
+    /* Imagem em quadrado responsivo */
     .image-box {
-       width: 70vh;
-		height: 70vh;
       flex-shrink: 0;
+      width: 70vh;
+      height: 70vh;
+      border-radius: 1rem;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.7);
+      overflow: hidden;
+      background: black;
     }
     .image-box img {
       width: 100%;
       height: 100%;
       object-fit: contain;
-      border-radius: 1rem;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.7);
+      display: block;
     }
+
+    /* Texto */
     .text-content {
       max-width: 40%;
-      color: white;
+      font-weight: 300;
+      font-size: 1.2rem;
+      line-height: 1.4;
     }
-    .text-fade-in {
-      animation: fadeIn 1.5s ease-in forwards;
+    .text-content h1, .text-content h2 {
+      font-weight: 700;
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      font-family: 'Playfair Display', serif;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    .text-content p {
+      margin-top: 0.7rem;
+    }
+
+    /* Responsivo para telas pequenas */
+    @media (max-width: 767px) {
+      .slide {
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 2rem;
+        gap: 1.5rem;
+      }
+      .image-box {
+        width: 90vw;
+        height: 90vw;
+      }
+      .text-content {
+        max-width: 90vw;
+        font-size: 1rem;
+        text-align: center;
+      }
+      .text-content h1, .text-content h2 {
+        font-size: 1.8rem;
+      }
     }
   </style>
 </head>
 <body>
+
   <div id="slideshow">
-    <!-- Slide templates with varied positions -->
-    <!-- Slide 1: imagem à esquerda -->
-    <div class="slide active">
-      <div class="flex w-full h-full items-center justify-start px-16">
-        <div class="image-box">
-          <img src="imagens/slide1.jpg" alt="Slide 1">
-        </div>
-        <div class="text-content text-right text-fade-in pl-8">
-          <h1 class="text-5xl font-bold">Markus & Nariane</h1>
-          <p class="text-xl mt-4">Desde que nos encontramos, o mundo ganhou novas cores.</p>
-        </div>
+    <!-- Slide 1 -->
+    <div class="slide active" style="flex-direction: row;">
+      <div class="image-box">
+        <img src="imagens/slide1.jpg" alt="Amor 1" />
+      </div>
+      <div class="text-content">
+        <h1>Markus & Nariane</h1>
+        <p>O amor que nos une é a nossa maior força e inspiração.</p>
       </div>
     </div>
 
-    <!-- Slide 2: imagem à direita -->
-    <div class="slide">
-      <div class="flex w-full h-full items-center justify-end px-16">
-        <div class="text-content text-left text-fade-in pr-8">
-          <h2 class="text-4xl font-semibold">Você é minha paz</h2>
-          <p class="mt-4 text-lg">Nos seus braços encontro o meu lugar.</p>
-        </div>
-        <div class="image-box">
-          <img src="imagens/slide2.jpg" alt="Slide 2">
-        </div>
+    <!-- Slide 2 -->
+    <div class="slide" style="flex-direction: row-reverse;">
+      <div class="image-box">
+        <img src="imagens/slide2.jpg" alt="Amor 2" />
+      </div>
+      <div class="text-content">
+        <h2>Desde o primeiro olhar</h2>
+        <p>Soube que juntos escreveríamos uma linda história de amor.</p>
       </div>
     </div>
 
-    <!-- Slide 3: imagem no centro -->
-    <div class="slide">
-      <div class="flex w-full h-full items-center justify-center px-16">
-        <div class="image-box">
-          <img src="imagens/slide3.jpg" alt="Slide 3">
-        </div>
+    <!-- Slide 3 -->
+    <div class="slide" style="flex-direction: row;">
+      <div class="image-box">
+        <img src="imagens/slide3.jpg" alt="Amor 3" />
       </div>
-      <div class="absolute inset-0 flex items-end justify-center pb-24 text-center text-white text-fade-in px-8">
-        <p class="text-2xl">Amar você é me descobrir todos os dias.</p>
-      </div>
-    </div>
-
-    <!-- Slide 4: imagem no topo -->
-    <div class="slide">
-      <div class="flex w-full h-full flex-col items-center justify-start pt-16">
-        <div class="image-box">
-          <img src="imagens/slide4.jpg" alt="Slide 4">
-        </div>
-        <div class="text-content text-center text-fade-in mt-8 px-16">
-          <p class="text-2xl">Você é o meu melhor presente.</p>
-        </div>
+      <div class="text-content">
+        <h2>Nos pequenos momentos</h2>
+        <p>Construímos laços que o tempo jamais apagará.</p>
       </div>
     </div>
 
-    <!-- Slide 5: imagem na base -->
-    <div class="slide">
-      <div class="flex w-full h-full flex-col items-center justify-end pb-16">
-        <div class="image-box">
-          <img src="imagens/slide5.jpg" alt="Slide 5">
-        </div>
-        <div class="text-content text-center text-fade-in mt-8 mb-8 px-16">
-          <p class="text-2xl">Cada sorriso seu ilumina meu caminho.</p>
-        </div>
+    <!-- Slide 4 -->
+    <div class="slide" style="flex-direction: row-reverse;">
+      <div class="image-box">
+        <img src="imagens/slide4.jpg" alt="Amor 4" />
+      </div>
+      <div class="text-content">
+        <h2>Amar é celebrar</h2>
+        <p>Cada sorriso, cada abraço, cada instante juntos.</p>
       </div>
     </div>
 
-    <!-- Slide 6: imagem à esquerda e texto em cima -->
-    <div class="slide">
-      <div class="flex w-full h-full items-center justify-start px-16">
-        <div class="image-box">
-          <img src="imagens/slide6.jpg" alt="Slide 6">
-        </div>
-        <div class="text-content text-left text-fade-in pl-8">
-          <h2 class="text-4xl font-semibold">Juntos, somos infinitos</h2>
-          <p class="mt-4 text-lg">Te amar é redundância — é sempre mais.</p>
-        </div>
+    <!-- Slide 5 -->
+    <div class="slide" style="flex-direction: row;">
+      <div class="image-box">
+        <img src="imagens/slide5.jpg" alt="Amor 5" />
+      </div>
+      <div class="text-content">
+        <h2>Nosso amor cresce</h2>
+        <p>Multiplicando alegrias e superando desafios.</p>
       </div>
     </div>
 
-    <!-- Slide 7: imagem à direita e texto em cima -->
-    <div class="slide">
-      <div class="flex w-full h-full items-center justify-end px-16">
-        <div class="text-content text-right text-fade-in pr-8">
-          <h2 class="text-4xl font-semibold">Você é meu hoje e meu sempre</h2>
-        </div>
-        <div class="image-box">
-          <img src="imagens/slide7.jpg" alt="Slide 7">
-        </div>
+    <!-- Slide 6 -->
+    <div class="slide" style="flex-direction: row-reverse;">
+      <div class="image-box">
+        <img src="imagens/slide6.jpg" alt="Amor 6" />
+      </div>
+      <div class="text-content">
+        <h2>Memórias inesquecíveis</h2>
+        <p>Guardadas no coração e celebradas a cada dia.</p>
       </div>
     </div>
 
-    <!-- Slide 8: imagem no centro com texto ao lado inferior -->
-    <div class="slide">
-      <div class="flex w-full h-full items-center justify-center px-16">
-        <div class="image-box">
-          <img src="imagens/slide8.jpg" alt="Slide 8">
-        </div>
+    <!-- Slide 7 -->
+    <div class="slide" style="flex-direction: row;">
+      <div class="image-box">
+        <img src="imagens/slide7.jpg" alt="Amor 7" />
       </div>
-      <div class="absolute inset-0 flex items-start justify-center pt-24 text-center text-white text-fade-in px-8">
-        <p class="text-2xl">Você é a razão do meu sorriso.</p>
-      </div>
-    </div>
-
-    <!-- Slide 9: imagem no topo à esquerda -->
-    <div class="slide">
-      <div class="flex w-full h-full flex-col items-start justify-start pt-16 pl-16">
-        <div class="image-box">
-          <img src="imagens/slide9.jpg" alt="Slide 9">
-        </div>
-        <div class="text-content text-left text-fade-in mt-6 px-16">
-          <p class="text-2xl">Estar com você é viver sonhos acordado.</p>
-        </div>
+      <div class="text-content">
+        <h2>Felicidade simples</h2>
+        <p>Momentos juntos que transformam tudo em magia.</p>
       </div>
     </div>
 
-    <!-- Slide 10: imagem no topo à direita -->
-    <div class="slide">
-      <div class="flex w-full h-full flex-col items-end justify-start pt-16 pr-16">
-        <div class="image-box">
-          <img src="imagens/slide10.jpg" alt="Slide 10">
-        </div>
-        <div class="text-content text-right text-fade-in mt-6 px-16">
-          <p class="text-2xl">Com você, cada segundo vale a pena.</p>
-        </div>
+    <!-- Slide 8 -->
+    <div class="slide" style="flex-direction: row-reverse;">
+      <div class="image-box">
+        <img src="imagens/slide8.jpg" alt="Amor 8" />
+      </div>
+      <div class="text-content">
+        <h2>Nossa família</h2>
+        <p>O maior presente que Deus nos deu para cuidar com amor.</p>
       </div>
     </div>
 
-    <!-- Slide 11: imagem centralizada na base -->
-    <div class="slide">
-      <div class="flex w-full h-full items-end justify-center pb-16">
-        <div class="image-box">
-          <img src="imagens/slide11.jpg" alt="Slide 11">
-        </div>
+    <!-- Slide 9 -->
+    <div class="slide" style="flex-direction: row;">
+      <div class="image-box">
+        <img src="imagens/slide9.jpg" alt="Amor 9" />
       </div>
-      <div class="absolute inset-0 flex items-start justify-center pt-24 text-center text-white text-fade-in px-8">
-        <p class="text-2xl">Você é meu lar, meu porto seguro.</p>
-      </div>
-    </div>
-
-    <!-- Slide 12: imagem centrada com texto escuro sobre sombra -->
-    <div class="slide">
-      <div class="flex w-full h-full items-center justify-center">
-        <div class="image-box">
-          <img src="imagens/slide12.jpg" alt="Slide 12">
-        </div>
-      </div>
-      <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center text-center text-white text-fade-in px-16">
-        <p class="text-2xl">Amar você é a minha maior alegria.</p>
+      <div class="text-content">
+        <h2>Compartilhar amor</h2>
+        <p>A magia de cada momento juntos nos fortalece.</p>
       </div>
     </div>
 
-    <!-- Slide 13: imagem à esquerda, texto grande -->
-    <div class="slide">
-      <div class="flex w-full h-full items-center justify-start px-16">
-        <div class="image-box">
-          <img src="imagens/slide13.jpg" alt="Slide 13">
-        </div>
-        <div class="text-content text-right text-fade-in pl-8">
-          <h2 class="text-5xl font-bold">Você é meu sonho realizado</h2>
-        </div>
+    <!-- Slide 10 -->
+    <div class="slide" style="flex-direction: row-reverse;">
+      <div class="image-box">
+        <img src="imagens/slide10.jpg" alt="Amor 10" />
+      </div>
+      <div class="text-content">
+        <h2>Um amor para sempre</h2>
+        <p>Que continue a crescer e iluminar nossos caminhos.</p>
       </div>
     </div>
 
-    <!-- Slide 14: imagem à direita, texto grande -->
-    <div class="slide">
-      <div class="flex w-full h-full items-center justify-end px-16">
-        <div class="text-content text-left text-fade-in pr-8">
-          <h2 class="text-5xl font-bold">Agora e para sempre, te amo</h2>
-          <p class="mt-4 text-lg">Obrigado por existir na minha vida.</p>
-        </div>
-        <div class="image-box">
-          <img src="imagens/slide14.jpg" alt="Slide 14">
-        </div>
+    <!-- Slide 11 -->
+    <div class="slide" style="flex-direction: row;">
+      <div class="image-box">
+        <img src="imagens/slide11.jpg" alt="Amor 11" />
+      </div>
+      <div class="text-content">
+        <h2>Nosso lar</h2>
+        <p>Repleto de amor, risos e sonhos realizados.</p>
+      </div>
+    </div>
+
+    <!-- Slide 12 -->
+    <div class="slide" style="flex-direction: row-reverse;">
+      <div class="image-box">
+        <img src="imagens/slide12.jpg" alt="Amor 12" />
+      </div>
+      <div class="text-content">
+        <h2>Parceiros de vida</h2>
+        <p>Juntos em cada passo, fortalecendo nosso vínculo.</p>
+      </div>
+    </div>
+
+    <!-- Slide 13 -->
+    <div class="slide" style="flex-direction: row;">
+      <div class="image-box">
+        <img src="imagens/slide13.jpg" alt="Amor 13" />
+      </div>
+      <div class="text-content">
+        <h2>Carinho eterno</h2>
+        <p>Que nunca se apaga, mesmo nos dias difíceis.</p>
+      </div>
+    </div>
+
+    <!-- Slide 14 -->
+    <div class="slide" style="flex-direction: row-reverse;">
+      <div class="image-box">
+        <img src="imagens/slide14.jpg" alt="Amor 14" />
+      </div>
+      <div class="text-content">
+        <h1>Feliz Dia dos Namorados!</h1>
+        <p>Que nossa história seja sempre escrita com amor, parceria e bênçãos divinas. Amo você, hoje e para sempre. ❤️</p>
       </div>
     </div>
 
@@ -230,11 +253,26 @@
   <script>
     const slides = document.querySelectorAll(".slide");
     let currentSlide = 0;
-    setInterval(() => {
+    const slideCount = slides.length;
+
+    // Tempo de leitura para cada slide em milissegundos (exemplo: 10s)
+    const slideDurations = [
+      10000, 10000, 9000, 9000,
+      10000, 9000, 9000, 10000,
+      9000, 10000, 9000, 9000,
+      9000, 12000
+    ];
+
+    function showNextSlide() {
       slides[currentSlide].classList.remove("active");
-      currentSlide = (currentSlide + 1) % slides.length;
+      currentSlide = (currentSlide + 1) % slideCount;
       slides[currentSlide].classList.add("active");
-    }, 8000); // 8 segundos por slide
+
+      setTimeout(showNextSlide, slideDurations[currentSlide]);
+    }
+
+    // Start slideshow with first delay
+    setTimeout(showNextSlide, slideDurations[0]);
   </script>
 </body>
 </html>
